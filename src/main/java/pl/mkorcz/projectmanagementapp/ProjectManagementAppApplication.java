@@ -14,10 +14,4 @@ public class ProjectManagementAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProjectManagementAppApplication.class, args);
 	}
-
-	@GetMapping("/")
-	public String sayHello() {
-		return "Hello world";
-	}
-
 }
