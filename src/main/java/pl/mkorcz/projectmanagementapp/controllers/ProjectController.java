@@ -9,21 +9,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.mkorcz.projectmanagementapp.dao.ProjectRepository;
 import pl.mkorcz.projectmanagementapp.entities.Project;
 
+import java.util.List;
+
 @Controller
-@RequestMapping("/projects/")
+@RequestMapping("/projects")
 public class ProjectController {
 
     @Autowired
     ProjectRepository projectRepo;
 
-
+    @GetMapping
+    public String displayProjects(Model model) {
+        List<Project> projects = projectRepo.findAll();
+        model.addAttribute("projects", projects);
+        return "projects/list-projects";
+    }
 
     @GetMapping("/new")
     public String displayProjectForm(Model model) {
         Project aProject = new Project();
 
         model.addAttribute("project", aProject);
-        return "new-project";
+        return "projects/new-project";
     }
 
     @PostMapping("/save")
