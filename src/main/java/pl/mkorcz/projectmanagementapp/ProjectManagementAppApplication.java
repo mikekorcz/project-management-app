@@ -19,7 +19,7 @@ import java.util.Arrays;
 public class ProjectManagementAppApplication {
 
 	@Autowired
-	EmployeeRepository  employeeRepository;
+	EmployeeRepository employeeRepository;
 
 	@Autowired
 	ProjectRepository projectRepository;
